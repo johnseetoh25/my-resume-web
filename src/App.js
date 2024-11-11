@@ -3,6 +3,10 @@ import './App.css';
 import { Box, Button, Drawer } from '@mui/material';
 import DrawerLayout from './components/drawer';
 import { Copyright } from '@mui/icons-material';
+import { ResumeProvider } from './contexts/resume-context';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import PreviewLayout from './previews/preview';
 
 function App() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -16,16 +20,19 @@ function App() {
       <header>
         <Button variant='contained' onClick={toggleDrawer(true)}>Edit</Button>
       </header>
-      <div>
-        <h1></h1>
-      </div>
-      <Drawer open={openDrawer} anchor='right' onClose={toggleDrawer(false)}>
-        <Box sx={{width: 600}}>
-          <DrawerLayout/>
-        </Box>
-      </Drawer>
+      
+      <ResumeProvider>
+        <PreviewLayout></PreviewLayout>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <Drawer open={openDrawer} anchor='right' onClose={toggleDrawer(false)}>
+            <Box sx={{width: 600}}>
+              <DrawerLayout/>
+            </Box>
+          </Drawer>
+        </LocalizationProvider>
+      </ResumeProvider>
       <footer>
-        <div>See Toh Yee Ding - CV Web Design</div>
+        <div>See Toh Yee Ding - My Resume or CV Maker Web Design</div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Copyright/>&thinsp;CV Web Design, All right reserved</div>
       </footer>
     </div>

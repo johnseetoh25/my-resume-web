@@ -3,8 +3,12 @@
 }
 
 .drawer-bottom{
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    margin: 20px;
+    text-align: end;
+    margin: 20px 0px;
+}
+
+.skill-item-style{
+    display: grid;
+    grid-template-columns: 2fr 1fr 0.2fr;
+    gap: 10px;
 }
