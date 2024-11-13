@@ -11,3 +11,9 @@ footer{
   text-align: center;
   padding: 20px 0px;
 }
+
+.drawer-appbar-style{
+  background: #2196f3;
+  display: flex;
+  justify-content: space-between;
+}

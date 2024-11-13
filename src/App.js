@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import './App.css';
-import { Box, Button, Drawer } from '@mui/material';
+import { Box, Button, Drawer, Toolbar, Typography } from '@mui/material';
 import DrawerLayout from './components/drawer';
 import { Copyright } from '@mui/icons-material';
 import { ResumeProvider } from './contexts/resume-context';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import 'dayjs/locale/en-gb'
 import PreviewLayout from './previews/preview';
 
 function App() {
@@ -23,9 +24,15 @@ function App() {
       
       <ResumeProvider>
         <PreviewLayout></PreviewLayout>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
           <Drawer open={openDrawer} anchor='right' onClose={toggleDrawer(false)}>
-            <Box sx={{width: 600}}>
+            <Box sx={{width: 800}}>
+              <Box>
+                <Toolbar className='drawer-appbar-style'>
+                  <Typography variant='h4'>Personal Information Edit</Typography>
+                  <Button variant='outlined' sx={{bgcolor: 'white'}}>close</Button>
+                </Toolbar>
+              </Box>
               <DrawerLayout/>
             </Box>
           </Drawer>

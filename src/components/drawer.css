@@ -1,5 +1,5 @@
 .drawer-layout-style{
-    margin: 20px;
+    margin: 30px 40px;
 }
 
 .drawer-bottom{
@@ -7,8 +7,29 @@
     margin: 20px 0px;
 }
 
+.personal-row-style{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 10px;
+    margin: 5px 0px;
+}
+
+.address-row-style{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px 0px;
+}
+
 .skill-item-style{
     display: grid;
     grid-template-columns: 2fr 1fr 0.2fr;
     gap: 10px;
+}
+
+.date-range-style{
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.25fr;
+    gap: 10px;
+    width: 100%;
 }
