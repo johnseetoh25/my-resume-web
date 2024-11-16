@@ -13,3 +13,7 @@ export const stateList = [
     { id: 3, label: 'Perak', value: 'Perak' },
     { id: 3, label: 'Johor', value: 'Johor' },
 ]
+
+export const languageLevel = [
+    { id: 1, label: '', value: '' }
+]

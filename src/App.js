@@ -25,12 +25,12 @@ function App() {
       <ResumeProvider>
         <PreviewLayout></PreviewLayout>
         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
-          <Drawer open={openDrawer} anchor='right' onClose={toggleDrawer(false)}>
+          <Drawer open={openDrawer} anchor='right' >
             <Box sx={{width: 800}}>
               <Box>
                 <Toolbar className='drawer-appbar-style'>
                   <Typography variant='h4'>Personal Information Edit</Typography>
-                  <Button variant='outlined' sx={{bgcolor: 'white'}}>close</Button>
+                  <Button onClick={toggleDrawer(false)} variant='outlined' sx={{bgcolor: 'white'}}>close</Button>
                 </Toolbar>
               </Box>
               <DrawerLayout/>

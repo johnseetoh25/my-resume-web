@@ -1,0 +1,36 @@
+.name-card-layout{
+    display: flex;
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    width: 50%;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.profile-photo{
+    background: lightgray;
+    aspect-ratio: 1.25/1;
+    text-align: center;
+    align-content: center;
+
+    flex: 50%
+}
+
+.profile-content{
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hello-text{
+    font-size: 32px;
+}
+
+.name-text{
+    font-size: 42px;
+    font-weight: 700;
+}

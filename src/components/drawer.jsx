@@ -81,11 +81,11 @@ export default function DrawerLayout() {
 
             <Typography variant='h4' sx={{ marginTop: 3}}>Language</Typography>
             <Divider/>
-            {/* <Box className="language-item-style" sx={{marginY: 2}}>
+            <Box className="language-item-style" sx={{marginY: 2}}>
                 <TextField label="language" />
                 <TextField label="level" select></TextField>
                 <Button variant='contained'><Delete/></Button>
-            </Box> */}
+            </Box>
             
 
             <Typography variant='h4' sx={{ marginTop: 3}}>Interest</Typography>

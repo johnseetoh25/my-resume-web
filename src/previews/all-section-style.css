@@ -1,0 +1,20 @@
+/* profile layout and style */
+.profile-section{
+    display: flex;
+}
+
+.personal-summary, .personal-bios{
+    flex: 50%;
+    padding: 0 5%;
+}
+
+/* service layout and style */
+
+
+/* resume layout and style */
+
+
+/* portfolio layout and style */
+
+
+/* contact layout and style */
