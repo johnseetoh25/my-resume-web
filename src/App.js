@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import { Box, Button, Drawer, Toolbar, Typography } from '@mui/material';
+import { Box, Button, Drawer, Fab, Toolbar, Typography } from '@mui/material';
 import DrawerLayout from './components/drawer';
-import { Copyright } from '@mui/icons-material';
+import { Copyright, Edit } from '@mui/icons-material';
 import { ResumeProvider } from './contexts/resume-context';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -42,6 +42,7 @@ function App() {
         <div>See Toh Yee Ding - My Resume or CV Maker Web Design</div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Copyright/>&thinsp;CV Web Design, All right reserved</div>
       </footer>
+      <Fab onClick={toggleDrawer(true)} sx={{ position: 'fixed', bottom: 50, right: 30}}><Edit/></Fab>
     </div>
   );
 }

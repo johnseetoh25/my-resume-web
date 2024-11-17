@@ -1,0 +1,15 @@
+.service-card-layout{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.service-card-content{
+    align-content: center;
+}
+
+.service-card-media{
+    background: lightgray;
+    aspect-ratio: 1;
+    text-align: center;
+    align-content: center;
+}

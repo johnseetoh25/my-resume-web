@@ -1,4 +1,4 @@
-import { Autocomplete, Box, Button, Checkbox, Divider, FormControlLabel, MenuItem, Paper, Switch, TextField, Typography } from '@mui/material'
+import { Autocomplete, Box, Button, Divider, FormControlLabel, MenuItem, Paper, Switch, TextField, Typography } from '@mui/material'
 import React from 'react'
 import '../components/drawer.css'
 import { educationLevelLists } from '../library/educationLib'

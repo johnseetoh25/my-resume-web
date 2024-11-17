@@ -1,0 +1,13 @@
+.skill-card-layout{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.skill-card-media{
+    background: lightgray;
+    aspect-ratio: 4/1;
+    
+    text-align: center;
+    align-content: center;
+}

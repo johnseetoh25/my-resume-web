@@ -1,8 +1,13 @@
 header{
   height: 40vh;
-  align-content: center;
-  text-align: center;
+  text-align: end;
+  padding: 30px 5% 0;
+   /* parallax */
   background-image: url('../public/Photos/background.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 footer{
