@@ -5,6 +5,7 @@ import { Download } from '@mui/icons-material'
 import ExperienceTimeline from '../components/experience-timeline'
 import EducationTimeline from '../components/education-timeline'
 import SkillCard from '../components/skill-card'
+import LanguageAvatarList from '../components/language-avatar-list'
 
 export default function ResumeSection() {
   return (
@@ -31,9 +32,7 @@ export default function ResumeSection() {
         
         <Paper sx={{ padding: 2 }}>
           <Typography variant='h4' sx={{textAlign: 'center'}}>Language</Typography>
-        </Paper>
-        <Paper >
-          <Typography variant='h4'></Typography>
+          <LanguageAvatarList/>
         </Paper>
       </div>
       <Button variant='contained' startIcon={<Download/>} sx={{ textTransform: 'none'}}>Download CV</Button>

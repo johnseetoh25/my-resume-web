@@ -24,9 +24,15 @@ export const ResumeProvider = ({children}) => {
             endDate: null,
             presentStudy: false,
         }],
-        skillLists: [{
-            skill: '', level: ''
-        }]
+        skillTypeLists: [{
+            skillTypeTitle: '',
+            subSkillLists: [{
+                skillSubTitle: '',
+                skillItemList: [
+                   { skillPicture: '', skillItemName: '' }
+                ]
+            }]
+        }],
     });
 
     const handleChange = (e) => {
@@ -52,6 +58,25 @@ export const ResumeProvider = ({children}) => {
         });
     };
 
+    const handleSkillTypeChange = (skillTypeIndex, subSkillIndex, itemIndex, e) => {
+        const { name, value } = e.target || e;
+        setResumeData((prevData) => {
+            const updatedSkillTypeLists = [...prevData.skillTypeLists];
+            if (subSkillIndex === null) {
+                // Update skillTypeTitle
+                updatedSkillTypeLists[skillTypeIndex][name] = value;
+            } else if (itemIndex === null) {
+                // Update subSkillTitle
+                updatedSkillTypeLists[skillTypeIndex].subSkillLists[subSkillIndex][name] = value;
+            } else {
+                // Update skillItem (skillPicture or skillItemName)
+                updatedSkillTypeLists[skillTypeIndex].subSkillLists[subSkillIndex].skillItemList[itemIndex][name] = value;
+            }
+            return { ...prevData, skillTypeLists: updatedSkillTypeLists };
+        });
+    };
+
+    // Action for adding and remove a item in Education section 
     const addEducationItem = () => {
         setResumeData(prevData => ({
             ...prevData,
@@ -69,6 +94,69 @@ export const ResumeProvider = ({children}) => {
         }
     };
 
+    // Action for adding and remove a item in Skills section 
+    const addSkillTypeItem = () => {
+        setResumeData(prevData => ({
+            ...prevData,
+            skillTypeLists: [ ...prevData.skillTypeLists, { skillTypeTitle: '', subSkillLists: [{ skillSubTitle: '', skillItemList: [{ skillPicture: '', skillItemName: '' }] }] } ]
+        }));
+    };
+
+    const removeSkillTypeItem = (index) => {
+        if (resumeData.skillTypeLists.length > 1) {
+            setResumeData(prevData => {
+                const updatedSkillType = prevData.skillTypeLists.filter((_, i) => i !== index);
+                return { ...prevData, skillTypeLists: updatedSkillType };
+            });
+        }
+    };
+
+    const addSubSkillItem = (skillTypeIndex) => {
+        setResumeData((prevData) => {
+            const updatedSkillTypeLists = [...prevData.skillTypeLists];
+            updatedSkillTypeLists[skillTypeIndex].subSkillLists.push({
+                skillSubTitle: '',
+                skillItemList: [{ skillPicture: '', skillItemName: '' }]
+            });
+            return { ...prevData, skillTypeLists: updatedSkillTypeLists}
+        });
+    };
+
+    const removeSubSkillItem = (skillTypeIndex, subSkillIndex) => {
+        setResumeData(prevData => {
+            const updatedSkillTypeLists = [...prevData.skillTypeLists];
+            const subSkillLists = updatedSkillTypeLists[skillTypeIndex].subSkillLists;
+
+            if (subSkillLists.length > 1) {
+                subSkillLists.splice(subSkillIndex, 1);
+            }
+            return { ...prevData, subSkillLists: updatedSkillTypeLists };
+        });  
+    }
+
+    const addSkillItem = (skillTypeIndex, subSkillIndex) => {
+        setResumeData((prevData) => {
+            const updatedSkillTypeLists = [...prevData.skillTypeLists];
+            updatedSkillTypeLists[skillTypeIndex].subSkillLists[subSkillIndex].skillItemList.push({
+                skillPicture: '',
+                skillItemName: ''
+            });
+            return { ...prevData, skillTypeLists: updatedSkillTypeLists };
+        });
+    };
+
+    const removeSkillItem = (skillTypeIndex, subSkillIndex, itemIndex) => {
+        setResumeData((prevData) => {
+            const updatedSkillTypeLists = [...prevData.skillTypeLists];
+            const skillItemList = updatedSkillTypeLists[skillTypeIndex].subSkillLists[subSkillIndex].skillItemList;
+    
+            if (skillItemList.length > 1) {
+                skillItemList.splice(itemIndex, 1);
+            }
+            return { ...prevData, skillTypeLists: updatedSkillTypeLists };
+        });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(resumeData);
@@ -81,8 +169,15 @@ export const ResumeProvider = ({children}) => {
                 resumeData,
                 handleChange,
                 handleEducationChange,
+                handleSkillTypeChange,
                 addEducationItem,
                 removeEducationItem,
+                addSkillTypeItem,
+                removeSkillTypeItem,
+                addSubSkillItem,
+                removeSubSkillItem,
+                addSkillItem,
+                removeSkillItem,
                 handleSubmit
             }}
         >

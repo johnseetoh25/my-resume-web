@@ -8,9 +8,9 @@ export default function ServiceSection() {
     <div className='service-section-layout'>
       <Typography variant='h3' sx={{ textAlign: 'center'}}>What I'm doing?</Typography>
       <div className="service-card-listing-layout">
-        <ServiceCard/>
-        <ServiceCard/>
-        <ServiceCard/>
+        {Array.from({length: 6}).map((_, index) => (
+          <ServiceCard key={index}/>
+        ))}
       </div>
     </div>
   )

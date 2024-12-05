@@ -21,7 +21,40 @@
     padding: 10px 0px;
 }
 
-.skill-item-style, .language-item-style{
+.skill-item-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.picture-file-input{
+    cursor: pointer;
+}
+
+.picture-file-label{
+    cursor: pointer;
+    font-weight: 500; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    color: lightgray;
+    border: 1px dashed;
+    aspect-ratio: 1;
+    border-radius: 5px;
+}
+
+input[type="file"]{
+    display: none;
+}
+.picture-file-input:hover{
+    border-color: #1976d2;
+}
+
+.picture-file-label:hover{
+    color: #1976d2;
+}
+
+.language-item-style{
     display: grid;
     grid-template-columns: 2fr 1fr 0.2fr;
     gap: 10px;

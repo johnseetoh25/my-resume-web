@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { Box, Button, Drawer, Fab, Toolbar, Typography } from '@mui/material';
 import DrawerLayout from './components/drawer';
-import { Copyright, Edit } from '@mui/icons-material';
+import { Copyright, Create, Edit } from '@mui/icons-material';
 import { ResumeProvider } from './contexts/resume-context';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -19,7 +19,7 @@ function App() {
   return (
     <div>
       <header>
-        <Button variant='contained' onClick={toggleDrawer(true)}>Edit</Button>
+        <Button variant='contained' onClick={toggleDrawer(true)} startIcon={<Create/>}> Edit</Button>
       </header>
       
       <ResumeProvider>

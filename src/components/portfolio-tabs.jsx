@@ -1,4 +1,4 @@
-import { Box, Tab, Tabs } from '@mui/material'
+import { Box, Pagination, Tab, Tabs } from '@mui/material'
 import React, { useState } from 'react'
 import '../components/portfolio-tabs.css'
 import PropTypes from 'prop-types'
@@ -32,11 +32,24 @@ function tabPanelProps(index) {
 }
 
 export default function PortfolioTabs() {
-    const [tabValue, setTabValue] = useState(0);
+  const [tabValue, setTabValue] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8; 
+  const totalItems = 18; 
+  const portfolioItems = Array.from({ length: totalItems });
 
-    const handleTabsChange = (event, newValueTab) => {
-        setTabValue(newValueTab)
-    }
+  const handleTabsChange = (event, newValueTab) => {
+    setTabValue(newValueTab)
+  }
+  
+  // Calculate the items to display on the current page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = portfolioItems.slice(startIndex, endIndex);
+
+  const handlePageChange = (event, page) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div>
@@ -49,13 +62,24 @@ export default function PortfolioTabs() {
       </Tabs>
       <TabPanel value={tabValue} index={0}>
         <div className="portfolio-card-listing-layout">
-          <PortfolioCard/>
-          <PortfolioCard/>
-          <PortfolioCard/>
-          <PortfolioCard/>
+          {currentItems.map((_, index) => (
+            <PortfolioCard key={startIndex + index}/>
+          ))}
+        </div>
+        <Pagination 
+          count={Math.ceil(totalItems / itemsPerPage)} // Total pages
+          page={currentPage}
+          onChange={handlePageChange} // Update page on change
+          className='portfolio-card-listing-pagination'
+        />
+      </TabPanel>
+      <TabPanel value={tabValue} index={1}>
+        <div className="portfolio-card-listing-layout">
+          {Array.from({length: 8}).map((_, index) => (
+            <PortfolioCard key={index}/>
+          ))}
         </div>
       </TabPanel>
-      <TabPanel value={tabValue} index={1}>2</TabPanel>
       <TabPanel value={tabValue} index={2}>3</TabPanel>
       <TabPanel value={tabValue} index={3}>4</TabPanel>
       <TabPanel value={tabValue} index={4}>5</TabPanel>
